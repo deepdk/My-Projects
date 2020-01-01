@@ -1,0 +1,268 @@
+---
+output: html_document
+---
+```{r}
+library(tidyverse)
+```
+
+```{r}
+df = read.csv("G:/kaggle/Datasets/top10s.csv")
+head(df)
+```
+```{r}
+summary(df)
+```
+We will study the TOP 20 Artist, Genres in each year.
+
+```{r}
+attach(df)
+```
+```{r}
+year_2010 <- df %>%
+  select(year, artist, pop, top.genre, title) %>%
+  group_by(year)%>%
+  filter(year == 2010)%>%
+  arrange(desc(pop))%>%
+  head(n = 20)
+year_2010
+```
+##2010
+
+```{r}
+year_2010 %>%
+  ggplot(aes(top.genre)) +
+  geom_bar(fill = 'red')+
+  coord_flip()
+```
+```{r}
+year_2010 %>%
+  ggplot(aes(artist)) +
+  geom_bar(fill = 'red')+ labs(title = "Top 20 artist according to number of songs in 2010") +
+  coord_flip()
+```
+```{r}
+year_2010 %>%
+  ggplot(aes(x=artist,y=pop)) + labs(title = "Top 20 artist according to popularity 2010") +
+  geom_point() +
+  coord_flip()
+```
+
+
+
+##2011
+```{r}
+year_2011 <- df %>%
+  select(year, artist, pop, top.genre, title) %>%
+  group_by(year)%>%
+  filter(year == 2011)%>%
+  arrange(desc(pop))%>%
+  head(n = 20)
+year_2011
+```
+```{r}
+year_2011 %>%
+  ggplot(aes(top.genre)) +
+  geom_bar(fill = 'blue')+labs(title = "Top genres in 2011")+
+  coord_flip()
+```
+```{r}
+year_2011 %>%
+  ggplot(aes(artist)) +
+  geom_bar(fill = 'blue')+labs(title = "Top 20 artist according to number of songs in 2011")+
+  coord_flip()
+```
+```{r}
+year_2011 %>%
+  ggplot(aes(x=artist,y=pop)) + labs(title = "Top 20 artist according to popularity 2011") +
+  geom_point() +
+  coord_flip()
+```
+
+
+
+##2012
+```{r}
+year_2012 <- df %>%
+  select(year, artist, pop, top.genre, title) %>%
+  group_by(year)%>%
+  filter(year == 2012)%>%
+  arrange(desc(pop))%>%
+  head(n = 20)
+year_2012
+```
+```{r}
+year_2012 %>%
+  ggplot(aes(top.genre)) +
+  geom_bar(fill = 'blue')+labs(title = "Top genres in 2012")+
+  coord_flip()
+```
+
+
+
+```{r}
+year_2012 %>%
+  ggplot(aes(x=artist,y=pop)) + labs(title = "Top 20 artists according to popularity in 2012") +
+  geom_point() +
+  coord_flip()
+```
+```{r}
+year_2012 %>%
+  ggplot(aes(artist)) +
+  geom_bar(fill = 'green')+labs(title = "Top 20 artists according to number of songs in 2012 ")+
+  coord_flip()
+```
+##2013
+```{r}
+year_2013 <- df %>%
+  select(year, artist, pop, top.genre, title) %>%
+  group_by(year)%>%
+  filter(year == 2013)%>%
+  arrange(desc(pop))%>%
+  head(n = 20)
+year_2013
+```
+```{r}
+year_2013 %>%
+  ggplot(aes(top.genre)) +
+  geom_bar(fill = 'brown')+ labs(title = "Top genres in 2013") +
+  coord_flip()
+```
+```{r}
+year_2013 %>%
+  ggplot(aes(artist)) +
+  geom_bar(fill = 'brown')+ labs(title = "Top 20 artists according to number of songs in 2013") +
+  coord_flip()
+```
+```{r}
+year_2013 %>%
+  ggplot(aes(x=artist,y=pop)) + labs(title = "Top 20 artists according to popularity in 2013") +
+  geom_point() +
+  coord_flip()
+```
+
+
+##2014
+```{r}
+year_2014 <- df %>%
+  select(year, artist, pop, top.genre, title) %>%
+  group_by(year)%>%
+  filter(year == 2014)%>%
+  arrange(desc(pop))%>%
+  head(n = 20)
+year_2014
+```
+```{r}
+year_2014 %>%
+  ggplot(aes(top.genre)) +
+  geom_bar(fill = 'pink',colour = 'black')+ labs(title = "Top genres in 2014") +
+  coord_flip()
+```
+```{r}
+year_2014 %>%
+  ggplot(aes(artist)) +
+  geom_bar(fill = 'pink',colour = 'black')+ labs(title = "Top 20 artist according to number of songs in 2014") +
+  coord_flip()
+```
+```{r}
+year_2014 %>%
+  ggplot(aes(x=artist,y=pop)) + labs(title = "Top 20 artists according to popularity in 2014") +
+  geom_point() +
+  coord_flip()
+```
+
+
+##2015
+```{r}
+year_2015 <- df %>%
+  select(year, artist, pop, top.genre, title) %>%
+  group_by(year)%>%
+  filter(year == 2015)%>%
+  arrange(desc(pop))%>%
+  head(n = 20)
+year_2015
+```
+```{r}
+year_2015 %>%
+  ggplot(aes(top.genre)) +
+  geom_bar(fill = 'yellow',colour = 'black')+ labs("Top genres in 2015") +
+  coord_flip()
+```
+```{r}
+year_2015 %>%
+  ggplot(aes(artist)) +
+  geom_bar(fill = 'yellow',colour = 'black')+ labs("Top 20 artists according to number of songs in 2015") +
+  coord_flip()
+```
+```{r}
+year_2015 %>%
+  ggplot(aes(x=artist,y=pop)) + labs(title = "Top 20 artists according to popularity in 2015") +
+  geom_point() +
+  coord_flip()
+```
+
+
+##2016
+```{r}
+year_2016 <- df %>%
+  select(year, artist, pop, top.genre, title) %>%
+  group_by(year)%>%
+  filter(year == 2016)%>%
+  arrange(desc(pop))%>%
+  head(n = 20)
+year_2016
+```
+```{r}
+year_2016 %>%
+  ggplot(aes(top.genre,color = "red")) + labs("Top genres in 2016") +
+  geom_bar()+
+  coord_flip()
+```
+```{r}
+year_2016 %>%
+  ggplot(aes(artist,color = "blue")) + labs(title = "Top 20 artists according to number of songs in 2016") +
+  geom_bar()+
+  coord_flip()
+```
+```{r}
+year_2016 %>%
+  ggplot(aes(x=artist,y=pop)) + labs(title = "Top 20 artists according to popularity in 2016") +
+  geom_point() +
+  coord_flip()
+```
+
+
+##2017
+```{r echo=FALSE}
+year_2017 <- df %>%
+  select(year, artist, pop, top.genre, title) %>%
+  group_by(year)%>%
+  filter(year == 2017)%>%
+  arrange(desc(pop))%>%
+  head(n = 20)
+year_2017
+
+```
+```{r echo=FALSE}
+
+year_2017 %>%
+  ggplot(aes(artist,color = "blue")) +
+  geom_bar()+
+  coord_flip()
+```
+```{r echo=FALSE collapse=TRUE}
+year_2017 %>%
+  ggplot(aes(top.genre,color = "red")) +
+  geom_bar()+
+  coord_flip()
+```
+```{r}
+year_2018 <- df %>%
+  select(year, artist, pop, top.genre, title) %>%
+  group_by(year)%>%
+  filter(year == 2018)%>%
+  arrange(desc(pop))%>%
+  head(n = 20)
+year_2018
+
+```
+
